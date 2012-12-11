@@ -1,0 +1,9 @@
+This repository contains a simple implementation of a shared memory using mmap.
+
+Build the executable using 
+
+$make
+
+Run the executable using 
+
+$./sharedMem.o
