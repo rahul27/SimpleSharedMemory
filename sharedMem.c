@@ -2,11 +2,11 @@
 #include <sys/mman.h>
 #include <netdb.h>
 
-#define NUM_CORES 8
+#define NUM_CHIPS 2
 
 uint32_t * memAddr;
-size_t sharedMemSize = NUM_CORES;
-int status[NUM_CORES] = {0};
+size_t sharedMemSize = NUM_CHIPS;
+int status[NUM_CHIPS] = {0};
 
 void sharedMemInit()
 {
@@ -47,10 +47,10 @@ int main()
 
     sharedMemInit();
 
-    if (sharedMemWrite(3,&write_data))
+    if (sharedMemWrite(1,&write_data))
       printf("Write Success \n");
 
-    if (sharedMemRead(3,&read_data))
+    if (sharedMemRead(1,&read_data))
       printf("Read Success %d \n",(int) read_data);
     return 0;
 } 
